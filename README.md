@@ -1,2 +1,3 @@
 # kekehome
-This is one project for planning your money.
+This is one project from a student for learning git.
+This is test1 !
