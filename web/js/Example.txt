@@ -1,0 +1,28 @@
+<script language="javascript" type="text/javascript" src="/js/plugin/City/city2.js"></script>
+city2_init("shengShiDiv","sheng","shi","福建","厦门");
+
+<span id="shengShiXianBox"></span>
+<script language="javascript" type="text/javascript" src="/js/plugin/City/city3.min.js"></script>
+<script language="javascript" type="text/javascript">
+var ChkInput_City3IsChoEnd = false;
+function ssx1_callBackFun(isChoEnd) {
+    ChkInput_City3IsChoEnd = isChoEnd;
+    if (ChkInput_City3IsChoEnd == true) {
+        $('#cityIsFull').val('1');
+    } else {
+        $('#cityIsFull').val('0');
+    }
+}
+function setCity3() {
+    city3_init('shengShiXianBox', 'h_sheng', 'h_shi', 'h_xian', '', '', '', 'ssx1_callBackFun');
+
+    //city3_init('shengShiXianBox', 'h_sheng', 'h_shi', 'h_xian', '北京市', '宣武区', '', 'ssx1_callBackFun');
+
+    //$('#h_sheng').val('北京市');
+    //city3_select_1('h_sheng', 'h_shi', 'h_xian', $('#h_sheng').val(), 'ssx1_callBackFun');
+    //$('#h_shi').val('宣武区');
+    //city3_select_2('h_sheng', 'h_shi', 'h_xian', $('#h_shi').val(), 'ssx1_callBackFun');
+}
+//$.include('/js/jquery_city3.js', setCity3);
+setCity3();
+</script>
