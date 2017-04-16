@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>kekehome</title>
+	<link href="mod/style.css" rel="stylesheet" type="text/css">
+
+    <script src="mod/jquery.js"></script>
+    <script src="/ui/js/jquery.min.js"></script>
+    <script src="/ui/js/bootstrap.min.js"></script>
+    <script src="/ui/js/jquery.backstretch.min.js"></script>
+    <script src="/ui/layer/layer.js"></script>
+    <script src="/ui/js/long.js"></script>
+
+	<style type="text/css">
+    .btn-login {
+        background: url(/images/login/btn.png) no-repeat;
+        margin-top: 26px;
+        font-size: 30px;
+        color: #ffffff;
+        margin-left: 200px;
+    }
+    /* css3属性：↓与特定浏览器相关，伪类 */
+    input::-webkit-input-placeholder {
+        color: #442204;
+        /* font-weight: 900; */
+        font-size: 14px;
+        border: none;
+    }
+    .v-b-s {
+        background: url(/images/login/v_b.png) no-repeat;
+        padding-left: 30px;
+        outline: none;
+    }
+    .box_relative {
+        /* position:absolute\relative\fixed */
+        position: absolute;
+        right: 200px;
+        top: 20px;
+        font-size:20px;
+        color:#a30707;
+        font-weight:bold;
+    }
+
+    .btn-text {
+        background: url(/images/login/l_login_t_b.png) no-repeat;
+        width: 350px;
+        height: 40px;
+        margin-left: 120px;
+        padding-left: 30px;
+        outline: none;
+    }
+
+	</style>
+</head>
+<body>
+	<input readonly="true" style="background: url(/images/login/l_l_t.png) no-repeat; width: 700px; height: 100px;  font-size: 30px; color: #ffffff; padding-left: 120px; padding-top: 5px;" value="可可家园">
+
+	<div style="background: url(images/login/l_login_b.png); no-repeat; width: 600px; height: 430px;top: 50px; left: 350px; position: relative;">
+	<!-- position是相对于页面边缘的,故不需要margin -->
+		<input autocomplete="off" type="text" id="username" name="username" class="btn-text" placeholder="用户名" style="border-width:0px;margin-top: 140px" value="">
+
+		<input autocomplete="off" id="password" type="password" name="password" class="btn-text" placeholder="密码" style="margin-top: 25px;">
+		
+	
+
+        <div style="margin-top: 25px; width: 320px; height: 40px; margin-left: 120px;">
+            <input name="vcode" type="text" id="id_code" class="v-b-s" placeholder="验证码" style="height:40px;width:180px;">
+
+            <img id="img" onClick="this.src=this.src+'?'+Math.random();" style="position: absolute; width: 140px; height: 50px; padding-left: 15px; padding-top: 0px" src="../include/getCode.php">
+        </div>
+
+        <div>
+            <input type="submit" name="btnSave" value="登录" id="btnSave" class="btn-login" style="height:65px;width:214px;">
+
+            <input style="display:none;" type="checkbox" id="remember" value="1" checked='CHECKED'><a href="/member/getpwd.php" style="font-size:14px;">忘记密码</a>
+        </div>
+                
+    </div>
+	<script type="text/javascript">
+        $(".btn-login").click(function(){
+            denglu_go();
+            return false;
+        });
+        //denglu_go()方法，走ajax
+        function denglu_go(){
+
+            var username = $("#username").val();
+            var password = $("#password").val();
+            //↓为了保证与源文件当中变量名相同，
+            //故使用x3
+            var x3 = $("#id_code").val();
+            var remember = $("#remember").prop("checked");
+
+        }
+
+
+
+
+
+
+
+
+
+	/*layer.msg("这里是一个提示",{time:5});*/
+	//type:0~5
+	//layer.open({type:1});
+
+	//settimeout setinterval
+	//小插件 backstretch swiper.js
+		$.backstretch(["/ui/images/dl.jpg","/ui/images/dl2.jpg"], {
+		    fade: 1500,
+		    duration: 3000
+		});
+	</script>
+
+
+</body>
+</html>

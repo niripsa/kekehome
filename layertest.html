@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Layer测试</title>
+
+    <script src="mod/jquery.js"></script>
+    <script src="/ui/js/jquery.min.js"></script>
+    <script src="/ui/js/bootstrap.min.js"></script>
+    <script src="/ui/js/jquery.backstretch.min.js"></script>
+    <script src="/ui/layer/layer.js"></script>
+    <script src="/ui/js/long.js"></script>
+
+</head>
+<body>
+	<div id="test1" style="width: 280px;height: 100px;background-color: lightblue;margin:auto;">这里是内容</div>
+
+	<script type="text/javascript">
+	layer.tips("这里是提示",$("#test1"),{tips:1});
+	$("#test1").click(function(){
+		layer.tips("这里是提示",$("#test1"),{tips:1});
+	});
+
+
+
+
+	</script>
+</body>
+</html>
