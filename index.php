@@ -3,9 +3,14 @@
 //$_COOKIE $_SESSION
 //$_SERVER 服务器的信息
 //考虑为什么用$_SERVER['DOCUMENT_ROOT']，而不是直接写上根目录
-//var_dump($_SERVER);exit;
+/*var_dump($_SERVER);
+var_dump($_SERVER['DOCUMENT_ROOT']);
+exit;*/
 require_once $_SERVER['DOCUMENT_ROOT'] . '/include/conn.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/include/webConfig.php';
+//var_dump(__DIR__);exit;
+/*require_once __DIR__ . '/include/conn.php';
+require_once __DIR__ . '/include/webConfig.php';*/
 
 //require_once:如果加载失败报错，且重复加载不报错
 require_once $_SERVER['DOCUMENT_ROOT'] . '/member/logged_data.php';

@@ -90,7 +90,8 @@
             <div>
                 <input type="submit" name="btnSave" value="登录" id="btnSave" class="btn-login" style="height:65px;width:214px;">
 
-                <input style="display:none;" type="checkbox" id="remember" value="1" checked='CHECKED'><a href="/member/getpwd.php" style="font-size:14px;">忘记密码</a>
+                <input style="display:none;" type="checkbox" id="remember" value="1" checked='CHECKED'>
+                <a href="/member/getpwd.php" style="font-size:14px;">忘记密码</a>
                 
             </div>
         </div>
@@ -140,6 +141,7 @@
 			if(pwd==""){
 				tishi4('请输入您的密码','#pwd')
 				return false;
+                //return false在这里类似于exit，之前的网页代码仍然生效，但是return false之后的代码不会去运行
 				}
 			if(x3==""){
 				tishi4('请输入验证码','#x3')
@@ -160,15 +162,15 @@
             //async:是否异步传输 true则异步
 			$.ajax({ type : "get", async:true,  url : url, dataType : "json",
 				success: function(json){
-                    console.log("here is test 1!");
+                    //console.log("here is test 1!");
 					tishi2close();
-                     console.log("here is test 2!");
+                    //console.log("here is test 2!");
 					if(json.state == true){
-						//layer.alert(json.msg,function(){
-							//跳转
-                            console.log("here is test 3!");
+						layer.alert(json.msg,function(){
+							//跳转 
+                            //console.log("here is test 3!");
 							window.location.href = '/member/';
-						//});
+						});
 						
 					} else {
 						layer.alert(json.msg);

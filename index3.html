@@ -92,14 +92,45 @@
             var x3 = $("#id_code").val();
             var remember = $("#remember").prop("checked");
 
+            if (username == "") {
+                layer.tips("请输入用户名",$("#username"),{tips:1});
+                return false;
+                //return false在这里类似于exit，之前的网页代码仍然生效，但是return false之后的代码不会去运行
+            }
+            if (password == "") {
+                layer.tips("请输入密码",$("#password"),{tips:1});
+                return false;
+            }
+            if (x3 == "") {
+                layer.tips("请输入验证码",$("#id_code"),{tips:1});
+                return false;
+            }
+
+            var url="/member/bin.php?act=login&username="+encodeURIComponent(username)+"&pwd="+encodeURIComponent(pwd)+"&verify="+encodeURIComponent(x3)+"&remember="+encodeURIComponent(remember.toString());
+
+            tcindex = layer.load(0, {shade: [0.2,'#000'],shadeClose:false});
+
+
+            //旧版本是success:func() error:func()
+            $.ajax(url,{type:"get",dataType:json,async:true})
+            .always(function(){
+                layer.close(tcindex);
+            })
+            .done(function(json){
+                if(json.state == true){
+                    layer.alert(json.msg,function(){
+                        //跳转 
+                        //console.log("here is test 3!");
+                        window.location.href = '/member/';
+                    });                        
+                } else {
+                    layer.alert(json.msg);
+                }
+            })
+            .fail(function(json){
+                layer.alert('网络错误，请重新提交');
+            });
         }
-
-
-
-
-
-
-
 
 
 	/*layer.msg("这里是一个提示",{time:5});*/
